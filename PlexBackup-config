@@ -1,7 +1,0 @@
-POOL_PATH="/mnt/v1"
-APPS_PATH="apps"
-PLEX_SOURCE="plexpass"
-PLEX_DESTINATION="plexpass2"
-BACKUP_PATH="backup/Plex"
-BACKUP_NAME="plexbackup.tar.gz"
-
