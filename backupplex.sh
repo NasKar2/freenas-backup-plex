@@ -89,7 +89,7 @@ if [ ${choice} == "B" ] || [ ${choice} == "b" ]; then
   echo "cd ${POOL_PATH}/${APPS_PATH}/${PLEX_SOURCE}"
   tar --exclude=./Plex\ Media\ Server/Cache -zcvf ${POOL_PATH}/${BACKUP_PATH}/${BACKUP_NAME} ./
   echo "tar --exclude=./Plex\ Media\ Server/Cache -zcvf ${POOL_PATH}/${BACKUP_PATH}/${BACKUP_NAME} ./"
-
+  echo "Backup complete file located at ${POOL_PATH}/${BACKUP_PATH}/${BACKUP_NAME}"
 elif [ $choice == "R" ] || [ $choice == "r" ]; then
   # to restore plexbackup to directory plexpass2
     if [ ! -d "${POOL_PATH}/${APPS_PATH}/${PLEX_DESTINATION}" ]; then
@@ -99,6 +99,7 @@ elif [ $choice == "R" ] || [ $choice == "r" ]; then
   #tar xf plexbackup.tar.gz -C /mnt/v1/apps/plexpass2/
   tar zvxf ${POOL_PATH}/${BACKUP_PATH}/${BACKUP_NAME} -C ${POOL_PATH}/${APPS_PATH}/${PLEX_DESTINATION}
   echo "tar xf ${POOL_PATH}/${BACKUP_PATH}/${BACKUP_NAME} -C ${POOL_PATH}/${APPS_PATH}/${PLEX_DESTINATION}"
+  echo "Restore completed at ${POOL_PATH}/${APPS_PATH}/${PLEX_DESTINATION}"
 else
   echo "Must enter '(B)ackup' to backup Plex or '(R)estore' to restore Plex: "
 fi
