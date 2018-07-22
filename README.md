@@ -8,6 +8,8 @@ Script to help backup and restore the Plex data directory
 
 Create file called PlexBackup-config
 
+The cron variable allows you to backup without asking for user input if set to cron="yes"
+
 The APPS_PATH is the directory in our pool to put the plex data. In our example that would be /mnt/v1/apps/
 
 The PLEX_SOURCE is the name of the plex data directory that is the source of the backup. In our example /mnt/v1/apps/plexpass/
@@ -19,6 +21,7 @@ The BACKUP_PATH is the location in the pool for the backup file. In our example 
 THE BACKUP_NAME is the name of the backup file
 
 ```
+cron=""
 POOL_PATH="/mnt/v1"
 APPS_PATH="apps"
 PLEX_SOURCE="plexpass"

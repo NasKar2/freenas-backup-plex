@@ -8,6 +8,7 @@ if ! [ $(id -u) = 0 ]; then
 fi
 
 # Initialize defaults
+cron=""
 POOL_PATH=""
 APPS_PATH=""
 PLEX_SOURCE=""
@@ -59,7 +60,7 @@ if [ ${POOL_PATH} == "/" ]; then
 POOL_PATH=""
 fi
 echo $POOL_PATH
-
+#cron="yes"
 #POOL_PATH="/mnt/v1"
 #APPS_PATH="apps"
 #PLEX_SOURCE="plexpass"
@@ -67,16 +68,15 @@ echo $POOL_PATH
 #BACKUP_PATH="apps"
 #BACKUP_NAME="plexbackup.tar.gz"
 
-read -p "Enter '(B)ackup' to backup Plex or '(R)estore' to restore Plex: " choice
+if [ "$cron" != "yes" ]; then
+ read -p "Enter '(B)ackup' to backup Plex or '(R)estore' to restore Plex: " choice
+fi
 echo
-#echo $choice
-#if [ ${choice} == "B" ] || [ ${choice} == "b" ]; then
-#  echo "entered a B"
-#elif [ $choice == "R" ] || [ $choice == "r" ]; then
-#  echo "entered a R"
-#else
-#  echo "Must enter B or R "
-#fi
+
+if [ "${cron}" == "yes" ]; then
+    choice="B"
+fi
+
 echo
 if [ ${choice} == "B" ] || [ ${choice} == "b" ]; then
     if [ ! -d "${POOL_PATH}/${BACKUP_PATH}" ]; then
