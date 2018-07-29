@@ -54,11 +54,14 @@ if [ -z $BACKUP_NAME ]; then
 fi
 if [ ! -d "${POOL_PATH}/${APPS_PATH}/${PLEX_SOURCE}" ]; then
   echo "You made a PlexBackup-config error the plex backup directory ${POOL_PATH}/${APPS_PATH}/${PLEX_SOURCE} does not exist"
-  exit 1
+  mkdir -p ${POOL_PATH}/${APPS_PATH}/${PLEX_SOURCE}
+  echo "The directory ${POOL_PATH}/${APPS_PATH}/${PLEX_SOURCE} has been created for you"
 fi
+
 if [ ${POOL_PATH} == "/" ]; then
 POOL_PATH=""
 fi
+
 echo $POOL_PATH
 #cron="yes"
 #POOL_PATH="/mnt/v1"
